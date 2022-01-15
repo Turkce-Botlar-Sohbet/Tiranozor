@@ -14,6 +14,7 @@ class Config(object):
     
     # Update channel for Force Subscribe
     UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
+    if len(UPDATE_CHANNEL) == 0: UPDATE_CHANNEL = None
     
     # Log Channel ID
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
@@ -49,6 +50,9 @@ class Config(object):
     
     # database uri (mongodb)
     DATABASE_URL = os.environ.get("DATABASE_URL", "")
+
+    # Contact adress like: @something
+    CONTACT = os.environ.get("CONTACT", "")
     
     # Website referer
     REFERER = os.environ.get("REFERER", "")

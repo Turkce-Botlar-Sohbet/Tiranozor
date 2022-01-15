@@ -25,12 +25,12 @@ async def start(bot, update):
             await update.reply_text(
                 text="**Botu sadece kanal aboneleri kullanabilir.**",
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(text="Kanala Katil", url=f"https://t.me/{update_channel}")]
+                    [InlineKeyboardButton(text="Katıl", url=f"https://t.me/{update_channel}")]
                 ])
             )
             return
         except Exception:
-            await update.reply_text("Ters giden bir şey mi var. @thebans ile iletişime geçin")
+            await update.reply_text(f"Ters giden bir şey mi var. {Config.CONTACT} ile iletişime geçin")
             return
         await update.reply_text(
             text=Translation.START_TEXT.format(update.from_user.mention),

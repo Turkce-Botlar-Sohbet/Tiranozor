@@ -8,10 +8,8 @@ import lk21, requests, urllib.parse, filetype, os, time, shutil, tldextract, asy
 from PIL import Image
 
 # the secret configuration specific things
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
+if bool(os.environ.get("WEBHOOK", False)): from sample_config import Config
+else: from config import Config
 
 # the Strings used for this "thing"
 from translation import Translation
@@ -43,16 +41,14 @@ async def echo(bot, update):
                )
                return
         except UserNotParticipant:
-            await update.reply_text(
+            return await update.reply_text(
                 text="**Botu yalnızca kanal aboneleri kullanabilir.**",
                 reply_markup=InlineKeyboardMarkup([
                     [ InlineKeyboardButton(text="Kanala Katıl", url=f"https://t.me/{update_channel}")]
               ])
             )
-            return
         except Exception:
-            await update.reply_text("Ters giden bir şey mi var. @thebans ile iletişime geçin")
-            return
+            return await update.reply_text(f"Ters giden bir şey mi var. {Config.CONTACT} ile iletişime geçin")
     if not await db.is_user_exist(update.chat.id):
         await db.add_user(update.chat.id)
     ban_status = await db.get_ban_status(update.chat.id)

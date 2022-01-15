@@ -5,23 +5,21 @@ Bağlantıları Yüklemek için Telegram Botu.
 
 **Özellikleri**:
 
-👉 [YTDL Desteklenen Bağlantıları](https://ytdl-org.github.io/youtube-dl/supportedsites.html) Telegram'a yükleyin.
+👉 [YTDL Desteklenen Bağlantıları](https://ytdl-org.github.io/youtube-dl/supportedsites.html) Telegram'a yükler
 
-👉 HTTP/HTTPS'yi Dosya/Video olarak Telegram'a yükleyin.
+👉 HTTP/HTTPS'yi Dosya/Video olarak Telegram'a yükler
 
-👉 ZippyShare, HxFile ve AnonFiles URL'lerini yükleyin
+👉 ZippyShare, HxFile ve AnonFiles
 
 👉 Mesaj yayınla, yasakla, yasağı kaldır, toplam kullanıcıları kontrol et
 
+👉 Eğer Konfig'inizi config.py dosyasından almak istiyorsanız WEBHOOK değerini True olarak ayarlayın
+
+👉 Her restart'ta tüm python paketleri güncellenir
 
 #### Heroku'da çalıştırın
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-#### Railway'da çalıştırın
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FTurkce-Botlar-Sohbet%2FURL-Yukleyici&envs=WEBHOOK%2CTG_BOT_TOKEN%2CAPP_ID%2CAPI_HASH%2COWNER_ID%2CDATABASE_URL%2CSESSION_NAME%2CBANNED_USERS%2CUPDATE_CHANNEL%2CLOG_CHANNEL%2CDEF_THUMB_NAIL_VID_S%2CCHUNK_SIZE%2CHTTP_PROXY&optionalEnvs=UPDATE_CHANNEL%2CLOG_CHANNEL%2CDEF_THUMB_NAIL_VID_S%2CHTTP_PROXY&WEBHOOKDesc=Bunu+ANYTHING+ayarlamak%2C+env+modundayken+web+kancalar%C4%B1n%C4%B1+etkinle%C5%9Ftirir&TG_BOT_TOKENDesc=https%3A%2F%2Ft.me%2FBotFather+adresinden+bir+bot+olu%C5%9Fturarak+edinin.&APP_IDDesc=https%3A%2F%2Fmy.telegram.org%27da+bir+uygulama+olu%C5%9Fturarak+edinin.&API_HASHDesc=https%3A%2F%2Fmy.telegram.org%27da+bir+uygulama+olu%C5%9Fturarak+edinin.&OWNER_IDDesc=Telegram+ID+numaran%C4%B1z&DATABASE_URLDesc=MongoDB+URI%27niz&SESSION_NAMEDesc=Oturum+Ad%C4%B1n%C4%B1z%3A+%C3%96rnek%3A+urlyukleyici&BANNED_USERSDesc=Yasaklanan+%C4%B0stenmeyen+%C3%BCyeler.&UPDATE_CHANNELDesc=Zorla+abone+yapmak+i%C3%A7in+kanal%C4%B1n%C4%B1z%C4%B1n+kullan%C4%B1c%C4%B1+ad%C4%B1n%C4%B1+yaz%C4%B1n+%28%40+olmadan%29.&LOG_CHANNELDesc=G%C3%BCnl%C3%BCkler+i%C3%A7in+Kanal+ID+-+Telegram+ID+numaran%C4%B1z+olabilir.&DEF_THUMB_NAIL_VID_SDesc=Videolarda+kullan%C4%B1lacak+varsay%C4%B1lan+k%C3%BC%C3%A7%C3%BCk+foto%C4%9Fraf.&CHUNK_SIZEDesc=%C4%B0steklerde+kullan%C4%B1lmas%C4%B1+gereken+y%C4%B1%C4%9F%C4%B1n+boyutu&HTTP_PROXYDesc=K%C4%B1s%C4%B1tl%C4%B1+Alanlarda+youtube-dl%27ye+eri%C5%9Fmek+i%C3%A7in+proxy.+https%3A%2F%2Fgithub.com%2Frg3%2Fyoutube-dl%2Fissues%2F1091%23issuecomment-230163061+adresinden+kendi+proxy%27nizi+al%C4%B1n&WEBHOOKDefault=ANYTHING&CHUNK_SIZEDefault=128&referralCode=BOTSOHBET)
-
 
 #### VPS'nizde çalıştırın
 
@@ -54,5 +52,13 @@ Komut                   | Açıklama
 * [UploaditBot](https://telegram.dog/UploaditBot) için [Yoily](https://t.me/YoilyL)
 * [database.py](https://github.com/AbirHasan2005/VideoCompress/blob/main/bot/database/database.py) için [@AbirHasan2005](https://t.me/AbirHasan2005)
 
-#### LİSANS
-- GPLv3
+## License
+<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+<img src="https://www.gnu.org/graphics/gplv3-127x51.png" alt="GNU GPLv3 Image">
+</a>
+<br>
+URL-Yükleyici is Free Software: You can use, study share and improve it at your
+will. Specifically you can redistribute and/or modify it under the terms of the 
+  <a href="https://www.gnu.org/licenses/gpl.html">GNU General Public License</a> 
+  as published by the Free Software Foundation, either version 3 of the License, 
+  or (at your option) any later version.

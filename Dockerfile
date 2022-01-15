@@ -1,15 +1,20 @@
 FROM python:latest
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV TZ=Asia/Kolkata \
+    DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip ffmpeg -y
+WORKDIR /usr/src/app
+RUN chmod 777 /usr/src/app && \
+    apt-get update -y && apt-get upgrade -y && \
+    apt-get install -y git curl python3-pip ffmpeg -y && \
+    apt-get upgrade -y
 
-RUN cd /
-RUN git clone https://github.com/Turkce-Botlar-Sohbet/URL-Yukleyici.git
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt && \
+    apt-get -qq purge git && apt-get -y autoremove && apt-get -y autoclean
+RUN locale-gen en_US.UTF-8
 
-RUN cd /URL-Yukleyici
-WORKDIR /URL-Yukleyici
-
-RUN pip3 install -U pip
-RUN pip3 install -U -r requirements.txt
-
+COPY . .
 CMD python3 bot.py
