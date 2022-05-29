@@ -87,6 +87,3 @@ PASS = password.upper() if password else None
 
 # Other
 SEND_LOGS_WHEN_DYING = str(environ.get("SEND_LOGS_WHEN_DYING", "True")).lower() == 'true'
-
-
-
