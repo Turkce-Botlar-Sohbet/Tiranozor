@@ -1,0 +1,96 @@
+{
+  "name": "Tiranozor",
+  "description": "URL'leri Telegram'a Dosya ve Video Olarak Yüklemek için Telegram Botu.",
+  "keywords": [
+    "tiranozor",
+    "youtube"
+  ],
+  "logo": "https://telegra.ph/file/5ff448dc023800e2f4bb3.jpg",
+  "success_url": "https://t.me/tiranozorbot",
+  "repository": "https://github.com/Turkce-Botlar-Sohbet/Tiranozor",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "https://t.me/BotFather adresinden bir bot oluşturarak edinin.",
+      "value": ""
+    },
+    "APP_ID": {
+      "description": "https://my.telegram.org'da bir uygulama oluşturarak edinin.",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "https://my.telegram.org'da bir uygulama oluşturarak edinin.",
+      "value": ""
+    },
+    "OWNER_ID": {
+      "description": "Telegram ID numaranız.",
+      "value": ""
+    },
+    "DATABASE_URL": {
+      "description": "MongoDB URI'niz.",
+      "value": ""
+    },
+    "SESSION_NAME": {
+      "description": "Oturum Adınız: Ör. tiranozor",
+      "value": ""
+    },
+    "AUTH_CHANNEL": {
+      "description": "Zorla abone yapmak için kanalınızın ID numarası.",
+      "value": "",
+      "required": false
+    },
+    "PASS": {
+      "description": "Şifreli giriş ekler. (Bu özellik için auth_channel doldurulmalıdır.)",
+      "value": "maymun",
+      "required": false
+    },
+    "LOG_CHANNEL": {
+      "description": "Günlükler için Kanal ID - Telegram ID numaranız olabilir.",
+      "value": "",
+      "required": false
+    },
+    "PROMO": {
+      "description": "Yüklemeden sonra bot reklamı. Değer True/False olmalıdır.",
+      "value": "",
+      "required": false
+    },
+    "DEF_THUMB_NAIL_VID_S": {
+      "description": "Videolarda kullanılacak varsayılan küçük fotoğraf.",
+      "value": "",
+      "required": false
+    },
+    "CHUNK_SIZE": {
+      "description": "İsteklerde kullanılması gereken yığın boyutu.",
+      "value": "128"
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Heroku uygulamanızın adı.",
+      "value": "",
+      "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "Heroku API.",
+      "value": "",
+      "required": false
+    },
+    "HTTP_PROXY": {
+      "description": "Kısıtlı alanlarda yt-dlp'ye erişmek için proxy ekleyin.",
+      "value": "",
+      "required": false
+    }
+  },
+  "addons": [
+  ],
+  "buildpacks": [{
+    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+  }, {
+    "url": "https://github.com/hackertyus/aria2-heroku"
+  }, {
+    "url": "heroku/python"
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}

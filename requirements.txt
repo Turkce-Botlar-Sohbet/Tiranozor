@@ -1,0 +1,14 @@
+requests
+aiohttp
+hachoir
+heroku3
+Pillow
+pyromod
+psutil
+TgCrypto
+motor
+dnspython
+python-dotenv
+git+https://github.com/pyrogram/pyrogram@master
+git+https://github.com/yt-dlp/yt-dlp
+https://github.com/Tinche/aiofiles/archive/master.zip
