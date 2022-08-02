@@ -11,7 +11,7 @@ from PIL import Image
 from translation import Translation
 from pyrogram import Client, filters
 from pyrogram.enums import MessageEntityType, ChatAction
-from config import AUTH_CHANNEL, AUTH_USERS, LOG_CHANNEL, DOWNLOAD_LOCATION, CHUNK_SIZE, DEF_THUMB_NAIL_VID_S, HTTP_PROXY, ADL_BOT_RQ, PROCESS_MAX_TIMEOUT, 
+from config import AUTH_CHANNEL, AUTH_USERS, LOG_CHANNEL, DOWNLOAD_LOCATION, CHUNK_SIZE, DEF_THUMB_NAIL_VID_S, HTTP_PROXY, ADL_BOT_RQ, PROCESS_MAX_TIMEOUT
 
 from functions.progress import humanbytes
 from functions.aiohttp import DownLoadFile
