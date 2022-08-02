@@ -176,8 +176,7 @@ async def echo(bot, update):
             disable_web_page_preview=True
         )
         return False
-    if t_response:
-        await send_message.edit_text("Formatlar Ayıklanıyor...")
+    if t_response:        
         # LOGGER.info(t_response)
         x_reponse = t_response
         response_json = []
@@ -201,6 +200,7 @@ async def echo(bot, update):
             if "duration" in current_r_json:
                 duration = current_r_json["duration"]
             if "formats" in current_r_json:
+                await send_message.edit_text("__**Formatlar Ayıklanıyor...**__")
                 for formats in current_r_json["formats"]:
                     format_ext = formats.get("ext")
                     get_data = await db.get_blocked_exts(chat_id)
