@@ -11,7 +11,7 @@ from PIL import Image
 from translation import Translation
 from pyrogram import Client, filters
 from pyrogram.enums import MessageEntityType, ChatAction
-from config import AUTH_CHANNEL, LOG_CHANNEL, DOWNLOAD_LOCATION, CHUNK_SIZE, DEF_THUMB_NAIL_VID_S, HTTP_PROXY
+from config import AUTH_CHANNEL, AUTH_USERS, LOG_CHANNEL, DOWNLOAD_LOCATION, CHUNK_SIZE, DEF_THUMB_NAIL_VID_S, HTTP_PROXY, ADL_BOT_RQ, PROCESS_MAX_TIMEOUT, 
 
 from functions.progress import humanbytes
 from functions.aiohttp import DownLoadFile
@@ -53,15 +53,15 @@ async def echo(bot, update):
     send_message = await update.reply(text=f"İşleniyor...⏳", disable_web_page_preview=True,
                                       reply_to_message_id=message_id, quote=True)
     
-    if update.from_user.id not in Config.AUTH_USERS:
+    if update.from_user.id not in AUTH_USERS:
         # restrict free users from sending more links
-        if str(update.from_user.id) in Config.ADL_BOT_RQ:
+        if str(update.from_user.id) in ADL_BOT_RQ:
             current_time = time.time()
-            previous_time = Config.ADL_BOT_RQ[str(update.from_user.id)]
-            process_max_timeout = round(Config.PROCESS_MAX_TIMEOUT/60)
-            present_time = round(Config.PROCESS_MAX_TIMEOUT-(current_time - previous_time))
-            Config.ADL_BOT_RQ[str(update.from_user.id)] = time.time()
-            if round(current_time - previous_time) < Config.PROCESS_MAX_TIMEOUT:
+            previous_time = ADL_BOT_RQ[str(update.from_user.id)]
+            process_max_timeout = round(PROCESS_MAX_TIMEOUT/60)
+            present_time = round(PROCESS_MAX_TIMEOUT-(current_time - previous_time))
+            ADL_BOT_RQ[str(update.from_user.id)] = time.time()
+            if round(current_time - previous_time) < PROCESS_MAX_TIMEOUT:
                 await bot.edit_message_text(
                     chat_id=update.chat.id,                   
                     text=f"**{process_max_timeout} Dakikada 1 İstek Gönderebilirsiniz.\nLütfen {present_time} Saniye Sonra Tekrar Deneyin.**",
@@ -70,7 +70,7 @@ async def echo(bot, update):
                 )
                 return
         else:
-            Config.ADL_BOT_RQ[str(update.from_user.id)] = time.time()
+            ADL_BOT_RQ[str(update.from_user.id)] = time.time()
             
     LOGGER.info(update.from_user)
     url = update.text
