@@ -64,7 +64,7 @@ async def echo(bot, update):
             if round(current_time - previous_time) < PROCESS_MAX_TIMEOUT:
                 await bot.edit_message_text(
                     chat_id=update.chat.id,                   
-                    text=f"**{process_max_timeout} dakikada 1 istek gönderebilirsiniz.\n\nLütfen {present_time} saniye sonra tekrar deneyiniz.**",
+                    text=f"**{process_max_timeout} dakikada 1 istek gönderebilirsiniz.\n\nLütfen {present_time} saniye sonra tekrar deneyin.**",
                     disable_web_page_preview=True,
                     message_id=send_message.id
                 )
