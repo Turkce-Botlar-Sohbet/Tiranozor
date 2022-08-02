@@ -46,13 +46,32 @@ async def echo(bot, update):
         fsub = await handle_force_subscribe(bot, update)
         if fsub == 400:
             return
-
+    
     message_id = update.id
     chat_id = update.chat.id
     await update.reply_chat_action(ChatAction.TYPING)
     send_message = await update.reply(text=f"İşleniyor...⏳", disable_web_page_preview=True,
-                                      reply_to_message_id=message_id)
-
+                                      reply_to_message_id=message_id, quote=True)
+    
+    if update.from_user.id not in Config.AUTH_USERS:
+        # restrict free users from sending more links
+        if str(update.from_user.id) in Config.ADL_BOT_RQ:
+            current_time = time.time()
+            previous_time = Config.ADL_BOT_RQ[str(update.from_user.id)]
+            process_max_timeout = round(Config.PROCESS_MAX_TIMEOUT/60)
+            present_time = round(Config.PROCESS_MAX_TIMEOUT-(current_time - previous_time))
+            Config.ADL_BOT_RQ[str(update.from_user.id)] = time.time()
+            if round(current_time - previous_time) < Config.PROCESS_MAX_TIMEOUT:
+                await bot.edit_message_text(
+                    chat_id=update.chat.id,                   
+                    text=f"**{process_max_timeout} Dakikada 1 İstek Gönderebilirsiniz.\nLütfen {present_time} Saniye Sonra Tekrar Deneyin.**",
+                    disable_web_page_preview=True,
+                    message_id=send_message.id
+                )
+                return
+        else:
+            Config.ADL_BOT_RQ[str(update.from_user.id)] = time.time()
+            
     LOGGER.info(update.from_user)
     url = update.text
 
