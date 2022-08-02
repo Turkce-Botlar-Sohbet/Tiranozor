@@ -88,6 +88,8 @@ PASS = password.upper() if password else None
 # Other
 SEND_LOGS_WHEN_DYING = str(environ.get("SEND_LOGS_WHEN_DYING", "True")).lower() == 'true'
 
+PROCESS_MAX_TIMEOUT = int(os.environ.get("TIME_LIMIT", 7200))
+
 ADL_BOT_RQ = {}
 AUTH_USERS = list(set(int(x) for x in os.environ.get("AUTH_USERS", "0").split()))
 AUTH_USERS.append(OWNER_ID)
