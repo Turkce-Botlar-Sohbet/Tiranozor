@@ -201,6 +201,9 @@ async def yt_dlp_call_back(bot, update):
     if HTTP_PROXY != "":
         command_to_exec.append("--proxy")
         command_to_exec.append(HTTP_PROXY)
+    if "dbx.molystream" in yt_dlp_url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://dbx.molystream.org/")
     if ".cloud" in yt_dlp_url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
