@@ -135,6 +135,9 @@ async def echo(bot, update):
             "-j",
             url
         ]
+    if "dbx.molystream" in url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://dbx.molystream.org/")
     if ".cloud" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://vidmoly.to/")
